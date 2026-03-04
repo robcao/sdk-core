@@ -1126,8 +1126,32 @@ async fn call_cloud_service(client: &CoreClient, call: &RpcCallOptions) -> anyho
                 set_service_account_namespace_access
             )
         }
+        "GetAuditLogs" => {
+            rpc_call_on_trait!(client, call, CloudService, get_audit_logs)
+        }
         "ValidateAccountAuditLogSink" => {
             rpc_call_on_trait!(client, call, CloudService, validate_account_audit_log_sink)
+        }
+        "CreateAccountAuditLogSink" => {
+            rpc_call_on_trait!(client, call, CloudService, create_account_audit_log_sink)
+        }
+        "GetAccountAuditLogSink" => {
+            rpc_call_on_trait!(client, call, CloudService, get_account_audit_log_sink)
+        }
+        "GetAccountAuditLogSinks" => {
+            rpc_call_on_trait!(client, call, CloudService, get_account_audit_log_sinks)
+        }
+        "UpdateAccountAuditLogSink" => {
+            rpc_call_on_trait!(client, call, CloudService, update_account_audit_log_sink)
+        }
+        "DeleteAccountAuditLogSink" => {
+            rpc_call_on_trait!(client, call, CloudService, delete_account_audit_log_sink)
+        }
+        "GetCurrentIdentity" => {
+            rpc_call_on_trait!(client, call, CloudService, get_current_identity)
+        }
+        "GetNamespaceCapacityInfo" => {
+            rpc_call_on_trait!(client, call, CloudService, get_namespace_capacity_info)
         }
         rpc => Err(anyhow::anyhow!("Unknown RPC call {rpc}")),
     }
