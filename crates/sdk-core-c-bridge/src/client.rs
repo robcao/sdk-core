@@ -1379,7 +1379,7 @@ impl TryFrom<&ConnectionOptions> for temporalio_client::ConnectionOptions {
                 .dns_load_balancing(if http_connect_proxy.is_some() {
                     None
                 } else {
-                    Some(temporalio_client::DnsLoadBalancingOptions::default())
+                    None
                 })
                 .maybe_tls_options(tls_cfg)
                 .build(),
